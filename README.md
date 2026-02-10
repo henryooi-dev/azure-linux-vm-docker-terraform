@@ -19,6 +19,8 @@ This repository contains Terraform scripts to provision a Linux Virtual Machine 
 - Azure account
 - [Azure CLI installed](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest&pivots=winget)
 - VS Code with Terraform extension
+  
+  <img width="675" height="154" alt="image" src="https://github.com/user-attachments/assets/651d6a91-9b2f-4803-bbec-36333a42937d" />
 - SSH key generated for VM access
 
 ## Setup
@@ -47,9 +49,15 @@ This repository contains Terraform scripts to provision a Linux Virtual Machine 
    # Or without confirmation prompt
    terraform apply -auto-approve
    ```
-6. Access your VM via SSH:
+6. Generate SSH key
    ```bash
-   ssh -i ~/.ssh/mtcazurekey azureuser@<public-ip>
+   ssh-keygen -t rsa
+   # Check key created
+   ls ~/.ssh
+   ```    
+7. Access your VM via SSH:
+   ```bash
+   ssh -i ~/.ssh/<key> azureuser@<public-ip>
    ```
    
 File Structure
